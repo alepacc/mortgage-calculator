@@ -1,5 +1,155 @@
-@use "./variables";
-@use "./mixin";
+@use "./variables" as *;
+@use "./mixin" as *;
 @use "./reset";
 
+//  –––– typography –––– 
+@font-face {
+    font-family: "PlusJakartaSans";
+    src: url("src/assets/fonts/PlusJakartaSans-VariableFont_wght.ttf") format("truetype");
+    font-weight: 500, 700;
+}
 
+h1 {
+    font-size: 22px;
+}
+
+body{
+    font-size: 16px;
+    font-family: "PlusJakartaSans";
+}
+
+//  –––– LAYOUT ––––
+
+.container{
+    min-height: 100vh;
+    height: 100%;
+    width: 100%;
+    background-color: $slate-300;
+}
+
+main{
+    background-color: $white;
+}
+
+
+
+//  –––– FORM –––– 
+
+.form-section{
+    height: 60%;
+    @include flex(column);
+    align-items: flex-start;
+    padding: 20px;
+    gap: 10px;  
+}
+
+.form__group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form__btn{
+    // background-image: url("../assets/images/icon-calculator.svg");
+    // background-repeat: no-repeat;
+    padding: 10px 30px;
+    background-color: $lime;
+    border-radius: 50px;
+    display: inline-flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    color: $slate-900;
+
+}
+
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+input{
+    padding: 12px 16px;
+    // border-radius: 5px;
+    // border: 1px solid $slate-500;
+    width: inherit;
+    font-weight: 700;
+    background: none;
+    border: none;
+    &:focus{
+        outline: none;
+    }
+}
+
+label{
+    width: inherit;
+}
+
+input[type="radio"] {
+    width: fit-content;
+}
+
+.input-radio{
+    gap: 15px;
+    padding: 12px 16px;
+    label {
+        font-weight: 700;
+    }
+}
+
+.input-section, .input-radio {
+    display: inline-flex;
+    align-content: center;
+    align-items: center;
+    border-radius: 8px;
+    border: 1px solid $slate-500;
+    width: 100%;
+    overflow: hidden;
+    margin-top: 5px;
+    margin-bottom: 15px;
+}
+
+.measure {
+    font-weight: 700;
+    background-color: $slate-100;
+    padding: 12px 16px;
+    color: hsl(200, 24%, 40%);
+}
+
+
+
+// –––– RESULT –––– 
+
+.result{
+    background-color: $slate-900;
+    height: 40%;
+    @include flex(column);
+    padding: 20px;
+    color: $white;
+    gap: 20px;
+
+    &__info{
+        color: $slate-300;
+        text-align: center;
+    }
+}
+
+
+
+// –––––– HOVER AND FOCUS STATES ––––––
+
+input, button {
+    cursor: pointer;
+}
+.input-radio:hover{
+    border: 1px solid $lime;
+}
+.input-section:hover{
+    border: 1px solid $slate-900;
+}
+
+.form__btn:hover{
+    filter: brightness(2);
+}
