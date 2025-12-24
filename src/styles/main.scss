@@ -18,13 +18,24 @@ body{
     font-family: "PlusJakartaSans";
 }
 
+.txt-color{
+    color: $slate-700;
+}
+
+.error{
+    color: $red;
+    font-size: 14px;
+    margin-top: -10px;
+    margin-bottom: 10px;
+}   
+
 //  –––– LAYOUT ––––
 
 .container{
     min-height: 100vh;
     height: 100%;
     width: 100%;
-    background-color: $slate-300;
+    background-color: $slate-100;
 }
 
 main{
@@ -41,6 +52,7 @@ main{
     align-items: flex-start;
     padding: 20px;
     gap: 10px;  
+
 }
 
 .form__group {
@@ -152,4 +164,73 @@ input, button {
 
 .form__btn:hover{
     filter: brightness(2);
+}
+
+.error-active{
+    border: 1px solid $red !important;
+
+    .measure{
+        background-color: $red;
+        color: $white;
+    }
+
+}
+
+
+// –––– RESPONSIVE ––––
+
+@include respond-to(md) {
+    main {
+        display: flex;
+        width: max-content;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow:  20px 15px 20px 0px rgba(0, 0, 0, 0.1);
+    }
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .result {
+        border-bottom-left-radius: 100px;
+        height: -webkit-fill-available;
+        padding: $space-l;
+        width: 500px;
+
+    }
+
+    .form-section{
+        height: auto;
+        padding: $space-l;
+        gap: $space-m;      
+        width: 500px;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .form__group {
+        display: grid;
+        grid-template-columns: 48% 48%;
+        justify-content: space-between;
+        label {
+            order: -1;
+        }
+    }
+
+
+    .form__group p.error {
+        order: 1;
+    }
+
+    .form__btn{
+        width: fit-content;
+
+    }
+
 }

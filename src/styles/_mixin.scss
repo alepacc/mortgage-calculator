@@ -2,11 +2,11 @@
 
 @mixin respond-to($breakpoint) {
   @if $breakpoint == sm {
-    @media (min-width: $breakpoint-sm) { @content; }
+    @media (min-width: $mobile) { @content; }
   } @else if $breakpoint == md {
-    @media (min-width: $breakpoint-md) { @content; }
+    @media (min-width: $tablet) { @content; }
   } @else if $breakpoint == lg {
-    @media (min-width: $breakpoint-lg) { @content; }
+    @media (min-width: $desktop) { @content; }
   }
 }
 

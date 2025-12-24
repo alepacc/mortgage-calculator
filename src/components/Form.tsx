@@ -4,28 +4,55 @@ import Input from "./Input";
 // import { mortgageInput } from "../types/mortgage";
 
 function Form () {  
-    const [amount, setAmount] = useState(0);
-    const [term, setTerm] = useState(0);
-    const [interestRate, setInterestRate] = useState(0);
+    const [amount, setAmount] = useState('');
+    const [term, setTerm] = useState('');
+    const [interestRate, setInterestRate] = useState('');
 
-    
+    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        // Handle form submission logic here
+        setAmount(amount);
+        setTerm(term);
+        setInterestRate(interestRate);
+        console.log("Form submitted with values:", { amount, term, interestRate });
+    }
+
     return (
         <>
         <div className="form-section">
             <h1>Mortgage Calculator</h1>
-            <a href="...">Clear All</a>
-            <form>
-                <Input label="Mortgage Amount" 
-                inputName="amountInput" 
-                value={amount} onChange={setAmount}
-                before={true} measure="£"/>
+            <a href="..." className="txt-color">Clear All</a>
+            <form onSubmit={handleSubmit}>
+                <Input 
+                    label="Mortgage Amount" 
+                    inputName="amountInput" 
+                    value={amount}
+                    onChange={(e) => setAmount(e.target.value)}
+                    before={true}
+                    measure="£"
+                    step={"any"}
+                />
                 <span className="form__group"> 
-                    <Input label="Mortgage Term" inputName="termInput" value={term} onChange={setTerm}
-                    after={true} measure="years"/>
-                    <Input label="Interest Rate" inputName="interestRateInput" value={interestRate} onChange={setInterestRate}
-                    after={true} measure="%"/>
+                    <Input 
+                        label="Mortgage Term" 
+                        inputName="termInput" 
+                        value={term}
+                        onChange={(e) => setTerm(e.target.value)}
+                        after={true} 
+                        measure="years"
+                        step={"any"}
+                    />
+                    <Input 
+                        label="Interest Rate" 
+                        inputName="interestRateInput" 
+                        value={interestRate}
+                        onChange={(e) => setInterestRate(e.target.value)}
+                        after={true}
+                        measure="%"
+                        step={"0.1"}    
+                    />
                 </span>                
-                <p>Mortgage Type</p>
+                <p className="txt-color">Mortgage Type</p>
                 <div className="input-radio">
                     <input type="radio" name="mortgageType" id="repayment" value="repayment" />
                     <label htmlFor="repayment">Repayment</label>

@@ -3,46 +3,51 @@ import { useState } from "react";
 interface InputProps {
     label: string;
     inputName: string;
-    value: number;
-    onChange?: (value: number) => void;
+    value?: string;
+    onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
     before?: boolean;
     after?: boolean;
     measure: string;
+    min?: number;
+    max?: number;
+    step?: number | string;
 }
 
-function Input({ label, inputName, value, before=false, after=false, measure }: InputProps) {
+function Input({
+    label, 
+    inputName, 
+    value, 
+    onChange, 
+    before=false, 
+    after=false, 
+    measure,
+    step
+  }: InputProps) {
+  
+
   const [error, setError] = useState("");
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value: string = e.target.value;
-
-    // Validate if the input is not empty
-    if (!value.trim()) {
-      setError("This field is required.");
-    } else {
-      setError("");
-    }   
-  };
 
   return (
     <>
 
-        <label htmlFor={inputName}>
+        <label htmlFor={inputName}className="txt-color">
             {label}
         </label>
-        <div className="input-section">
+        <div className={`input-section ${error ? "error-active" : ""}`}>
           {before && <span className="measure">{measure}</span>      
           }
           <input
               id={inputName}
               type="number"
               value={value}
-              onChange={handleInputChange}
+              onChange={onChange}
+              step={step}
               required
           />
           {after && <span className="measure">{measure}</span>}
         </div>
-        {error && <p>{error}</p>}
+        {error && <p className="error">{error}</p>}
+
     </>
   );
 }
