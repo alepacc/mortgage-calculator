@@ -76,8 +76,6 @@ function Form({ setResult }: FormProps) {
 
             const calculatedResult = calculateMortgage(mortgageInput);
             setResult(calculatedResult);
-            console.log("Form submitted with values:", { amount, term, interestRate, radioValue });
-            console.log("Calculated Result:", calculatedResult);
         }else {
             setResult(null);
         }

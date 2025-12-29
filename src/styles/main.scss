@@ -61,8 +61,6 @@ main{
 }
 
 .form__btn{
-    // background-image: url("../assets/images/icon-calculator.svg");
-    // background-repeat: no-repeat;
     padding: 10px 30px;
     background-color: $lime;
     border-radius: 50px;
@@ -151,6 +149,38 @@ input:checked {
         color: $slate-300;
         text-align: center;
     }
+    &__label{
+        color: $slate-300;
+    }
+
+    &__box {
+        padding: $space-m;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        background: inherit;
+        filter: contrast(1.2);
+        border-radius: 12px;
+        border-top: 4px solid $lime;
+    }
+
+    &__monthly{
+        font-size: 40px;
+        color: $lime;
+        font-weight: 700;
+    }
+
+    &__total{
+        font-size: 24px;
+        color: $white;
+        font-weight: 700;
+    }
+    hr{
+        border: none;
+        height: 1px;
+        background-color: $slate-700;
+        margin: 0;
+    }
 }
 
 
@@ -160,16 +190,38 @@ input:checked {
 input, button {
     cursor: pointer;
 }
+
+.input-section:hover{
+    border: 1px solid $slate-900;
+}
+
 .input-radio:hover{
     border: 1px solid $lime;
 }
-.input-section:hover{
-    border: 1px solid $slate-900;
+.input-radio:has(input:checked){
+    border: 1px solid $lime;
+    background-color: rgba($lime, 0.1);
 }
 
 .form__btn:hover{
     filter: brightness(2);
 }
+
+input[type="radio"] {
+    appearance: none;
+    width: 5px !important;
+    height: auto;
+    border: 2px solid #999;
+    border-radius: 50%;
+    padding: 10px;
+}
+
+input[type="radio"]:checked {
+    border-color: rgba($lime, 0.1);
+    background-color: $lime;
+    box-shadow: inset 0 0 0 4px white;
+}
+
 
 .error-active{
     border: 1px solid $red !important;
@@ -201,11 +253,17 @@ input, button {
         align-items: center;
     }
     .result {
-        border-bottom-left-radius: 100px;
+        border-bottom-left-radius: 60px;
         height: -webkit-fill-available;
         padding: $space-l;
         width: 500px;
+        &__box{
+            width: 100%;
+        }
 
+        &__monthly{
+            font-size: 56px;
+        }
     }
 
     .form-section{
