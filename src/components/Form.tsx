@@ -3,7 +3,6 @@ import Input from "./Input";
 import iconCalculator from '../assets/images/icon-calculator.svg';
 
 import {type  MortgageInput, type MortgageResult, type MortgageType } from "../types/mortgage";
-// import { calculateMortgage } from "../utils/utils";
 import calculateMortgage from "../utils/utils";
 
 interface FormProps {
@@ -23,9 +22,6 @@ function Form({ setResult }: FormProps) {
         interestRate: '',
         radioValue: ''
     });
-
-
-    // const [result, setResult] = useState<MortgageResult | null>(null);
 
 
 
@@ -87,7 +83,7 @@ function Form({ setResult }: FormProps) {
         <>
         <div className="form-section">
             <h1>Mortgage Calculator</h1>
-            <a href="..." className="txt-color">Clear All</a>
+            <a href="" className="txt-color">Clear All</a>
             <form onSubmit={handleSubmit}>
                 <Input 
                     label="Mortgage Amount" 
