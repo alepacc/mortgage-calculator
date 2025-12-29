@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Input from "./Input";
+import iconCalculator from '../assets/images/icon-calculator.svg';
 
 import {type  MortgageInput, type MortgageResult, type MortgageType } from "../types/mortgage";
 // import { calculateMortgage } from "../utils/utils";
@@ -142,7 +143,7 @@ function Form({ setResult }: FormProps) {
                 {errors.radioValue && <p className="error">{errors.radioValue}</p>}
 
                 <button className="form__btn" type="submit">
-                    <img src="src/assets/images/icon-calculator.svg" alt="icon calculator"></img>
+                    <img src={iconCalculator} alt="icon calculator"></img>
                     Calculate Repayments
                 </button>
 

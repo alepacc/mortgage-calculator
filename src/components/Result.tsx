@@ -1,10 +1,11 @@
 import type { MortgageResult } from "../types/mortgage";
+import illustrationEmpty from "/src/assets/images/illustration-empty.svg";
 
 function Result({ result }: { result: MortgageResult | null }) {
     if (!result) {
         return (
             <div className="result">
-                <img src="src/assets/images/illustration-empty.svg" className="illustration empty"/>
+                <img src={illustrationEmpty} className="illustration empty"/>
                 <h1>Result shown here</h1>
                 <p className="result__info">Complete the form and click “calculate repayments” to see what your monthly repayments would be.</p>
             </div> 
