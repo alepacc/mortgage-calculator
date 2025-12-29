@@ -1,31 +1,30 @@
-import { useState } from "react";
 
 interface InputProps {
-    label: string;
-    inputName: string;
-    value?: string;
-    onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
-    before?: boolean;
-    after?: boolean;
-    measure: string;
-    min?: number;
-    max?: number;
-    step?: number | string;
+  label: string;
+  inputName: string;
+  value?: string;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  before?: boolean;
+  after?: boolean;
+  measure: string;
+  min?: number;
+  max?: number;
+  step?: number | string;
+  error?: string;
 }
 
 function Input({
-    label, 
-    inputName, 
-    value, 
-    onChange, 
-    before=false, 
-    after=false, 
-    measure,
-    step
-  }: InputProps) {
-  
+  label, 
+  inputName, 
+  value, 
+  onChange, 
+  before=false, 
+  after=false, 
+  measure,
+  step,
+  error
+}: InputProps) {
 
-  const [error, setError] = useState("");
 
   return (
     <>
@@ -42,7 +41,6 @@ function Input({
               value={value}
               onChange={onChange}
               step={step}
-              required
           />
           {after && <span className="measure">{measure}</span>}
         </div>

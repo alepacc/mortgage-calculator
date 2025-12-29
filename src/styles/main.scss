@@ -103,6 +103,11 @@ input[type="radio"] {
     width: fit-content;
 }
 
+// #TODO: change color
+input:checked {
+    accent-color: $lime;
+}
+
 .input-radio{
     gap: 15px;
     padding: 12px 16px;
