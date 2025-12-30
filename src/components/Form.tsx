@@ -34,18 +34,18 @@ function Form({ setResult }: FormProps) {
         };
 
         let isValid = true;
-        if (amount === ''){
-            newErrors.amount = 'This field is required.';
+        if (amount === '' || isNaN(parseFloat(amount)) || parseFloat(amount) <= 0){
+            newErrors.amount = amount === '' ? 'This field is required.' : 'Please enter a valid amount greater than 0.';
             isValid = false;            
         }
 
-         if (term === ''){
-            newErrors.term = 'This field is required.';
+         if (term === '' || isNaN(parseFloat(term)) || parseFloat(term) <= 0){
+            newErrors.term = term === '' ? 'This field is required.' : 'Please enter a valid term greater than 0.';
             isValid = false;            
         }
 
-        if (interestRate === ''){
-            newErrors.interestRate = 'This field is required.';
+        if (interestRate === '' || isNaN(parseFloat(interestRate)) || parseFloat(interestRate) <= 0){
+            newErrors.interestRate = interestRate === '' ? 'This field is required.' : 'Please enter a valid interest rate greater than 0.';
             isValid = false;            
         }
 
