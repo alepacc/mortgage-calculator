@@ -11,7 +11,7 @@ function Result({ result }: { result: MortgageResult | null }) {
             </div> 
         )   
     }
-
+ 
 
     return (
         <div className="result">

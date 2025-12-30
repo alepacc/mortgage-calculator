@@ -16,6 +16,7 @@ const calculateMortgage = (input: MortgageInput): MortgageResult => {
     return {monthlyRepayment: M, totalRepay: n*M} 
 
   }else if (type === "interest"){
+    // M = P × (annual rate / 12 / 100)
     // monthly repayment = amount * monthly interest rate
     const M = P*r; 
     // total repay = (total months * monthly repayment ) + amount
